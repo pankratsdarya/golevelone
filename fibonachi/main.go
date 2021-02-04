@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-// fibRecur возвращает число Фибоначчи, полученное с помощью рекурсии
+// fibRecur returns Fibonachi number on given position using recursion
 func fibRecur(number uint64) uint64 {
 
 	switch number {
@@ -18,10 +18,10 @@ func fibRecur(number uint64) uint64 {
 	}
 }
 
-// мапа для ускорения рекурсии
+// map that speeds up recursion
 var fibMap = map[int]uint64{0: 1, 1: 1}
 
-// fibWMap возвращает число Фибоначчи, полученное с помощью рекурсии, ускоренной мапой
+// fibWMap returns Fibonachi number on given position using recursion and map
 func fibWMap(number uint64) uint64 {
 
 	switch number {
