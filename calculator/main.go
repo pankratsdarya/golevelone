@@ -5,17 +5,17 @@ import (
 	"math"
 )
 
-// borderlen возвращает длину окружности
+// borderlen returns border length of circle
 func borderlen(s float64) float64 {
 	return math.Sqrt(s/math.Pi) * 2 * math.Pi
 }
 
-// diameter возвращает диаметр окружности
+// diameter returns diameter of circle
 func diameter(s float64) float64 {
 	return 2 * math.Sqrt(s/math.Pi)
 }
 
-// didgits разбирает число на сотни, десятки и единицы
+// didgits returns hundreds, tens and units in number
 func didgits(num uint32) {
 	var hundreds, tens, units uint8
 	hundreds = uint8(math.Floor(float64(num) / 100))
@@ -26,7 +26,7 @@ func didgits(num uint32) {
 }
 
 func main() {
-	//Расчет площади прямоугольника
+	//calculate square
 	var height, width int32
 	fmt.Println("Расчет площади прямоугольника.")
 	fmt.Print("Введите высоту: ")
@@ -34,14 +34,14 @@ func main() {
 	fmt.Print("Введите ширину: ")
 	fmt.Scanln(&width)
 	fmt.Printf("Площадь прямоугольника равна %d. \n", height*width)
-	//Расчет диаметра и длины окружности по заданной площади круга
+	//calculate diameter and border length on given square
 	var square float64
 	fmt.Println("Расчет диаметра и длины окружности по заданной площади круга.")
 	fmt.Print("Введите площадь: ")
 	fmt.Scanln(&square)
 	fmt.Printf("Диаметр круга равен %.4f. \n", diameter(square))
 	fmt.Printf("Длина окружности равна %.4f. \n", borderlen(square))
-	//Разбор числа на сотни, десятки и единицы
+	//calculate hundreds, tens and units
 	var newnumber uint32
 	fmt.Println("Разбор числа на сотни, десятки и единицы.")
 	fmt.Print("Введите число от 100 до 999: ")
