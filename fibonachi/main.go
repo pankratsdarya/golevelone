@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 )
 
 // fibRecur returns Fibonachi number on given position using recursion
@@ -43,12 +42,13 @@ func main() {
 	var num uint64
 
 	fmt.Print("Программа вычисляет заданное из стандартного ввода число Фибоначчи.\nСчитается, что F0=0 и F1=1. \nВведите число N: ")
+
 	_, err := fmt.Scanln(&num)
 	if err != nil {
-		log.Fatalf("Ошибка ввода: %v", err)
+		fmt.Printf("Ошибка ввода: %v\nВам не удалось ввести число без ошибок. Программа будет закрыта.", err)
+	} else {
+		fmt.Printf("Вычислено рекурсией: %d\n", fibRecur(num))
+		fmt.Printf("Вычислено c помощью мапы: %d", fibWMap(num))
+
 	}
-
-	fmt.Printf("Вычислено рекурсией: %d\n", fibRecur(num))
-	fmt.Printf("Вычислено c помощью мапы: %d", fibWMap(num))
-
 }
