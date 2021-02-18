@@ -1,9 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
+	"os"
 	"strings"
 
 	"github.com/pankratsdarya/golevelone/configuration/config"
@@ -43,6 +45,28 @@ func main() {
 		fullConfig.SomeAppKEY = *someAppKEY
 	}
 
-	fmt.Println(fullConfig)
+	fmt.Println(*fullConfig)
+
+	// Reading from file
+	file, err := os.Open("./config.json")
+	if err != nil {
+		log.Fatalf("Не могу открыть файл: %v", err)
+	}
+
+	defer func() {
+		err := file.Close()
+		if err != nil {
+			log.Printf("Не могу закрыть файл: %v", err)
+		}
+	}()
+
+	jsConfig := config.JsConfig{}
+
+	err = json.NewDecoder(file).Decode(&jsConfig)
+	if err != nil {
+		log.Printf("Не могу декодировать json-файл в структуру: %v", err)
+	}
+
+	fmt.Println(jsConfig)
 
 }
