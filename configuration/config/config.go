@@ -17,6 +17,14 @@ type Config struct {
 	SomeAppKEY  string `envconfig:"SOME_APP_KEY" default:"KEYtest" required:"true"`
 }
 
+// JsConfig is configuration structure for .json file
+type JsConfig struct {
+	MainPort   int    `json:"port"`
+	DBURL      string `json:"db_url"`
+	SomeAppID  string `json:"some_app_id"`
+	SomeAppKEY string `json:"some_app_key"`
+}
+
 // GetConfig gets base configuration
 func GetConfig() (*Config, error) {
 	conf := Config{}

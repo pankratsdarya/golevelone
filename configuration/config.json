@@ -1,0 +1,6 @@
+{
+    "port" : 8081,
+    "db_url" : "postgres://db-user:db-password@petstore-db:5432/petstore?sslmode=disable",
+    "some_app_id" : "IDjson",
+    "some_app_key" : "KEYjson"
+}
